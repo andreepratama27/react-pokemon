@@ -1,5 +1,5 @@
 import { render } from 'react-dom'
-import style from './styles/style.scss'
+// import style from './styles/style.scss'
 
 const Main = () => {
   return (
