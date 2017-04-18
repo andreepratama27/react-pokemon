@@ -8,8 +8,8 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'Main.js'),
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.scss', '.sass']
-  }
+    extensions: ['.js', '.jsx', '.css', '.scss', '.sass']
+  },
 
   output: {
      path: path.join(__dirname, 'dist'),
@@ -24,7 +24,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx$?/,
+        test: /\.jsx?$/,
         loader: 'babel',
         exclude: /node_modules/,
         query: {
@@ -55,6 +55,6 @@ module.exports = {
       inject: 'body'
     }),
 
-    new ExtractText('style.css')
+    new ExtractTextPlugin('style.css')
   ]
 }
