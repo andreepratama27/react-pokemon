@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --hot"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,8 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "sass-loader": "^6.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
