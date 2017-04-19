@@ -1,10 +1,12 @@
 import { render } from 'react-dom'
-// import style from './styles/style.scss'
+import Pokedex from 'components/Pokedex'
 
 const Main = () => {
   return (
-    <div>
-        <h1>Hello</h1>
+    <div className="pokedex-container">
+        <Pokedex />
+        <Pokedex />
+        <Pokedex />
     </div>
   )
 }
