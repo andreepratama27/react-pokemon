@@ -8,7 +8,10 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'Main.js'),
 
   resolve: {
-    extensions: ['.js', '.jsx', '.css', '.scss', '.sass']
+    extensions: ['.js', '.jsx', '.css', '.scss', '.sass'],
+	alias: {
+		components: path.resolve(__dirname, 'src', 'components')
+	}
   },
 
   output: {
