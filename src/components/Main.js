@@ -7,9 +7,9 @@ class Main extends React.Component {
     return (
         <div className='pokedex-container'>
             {
-              this.props.store.pokemon.map((v, i) => {
+              this.props.store.data.map((v, i) => {
                 return (
-                  <Pokedex name={v} key={i} />
+                  <Pokedex name={v.task} key={i} />
                 )
               })
             }
