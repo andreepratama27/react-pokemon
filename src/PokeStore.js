@@ -1,4 +1,5 @@
-import { autorun, observable } from 'mobx'
+import { autorun, computed, observable } from 'mobx'
+import axios from 'axios'
 
 class PokeStore {
 
@@ -15,5 +16,4 @@ const store = new PokeStore
 export default store
 
 autorun(() => {
-  console.log(store.pokemon[0])
 })
