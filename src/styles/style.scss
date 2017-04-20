@@ -27,7 +27,7 @@ body {
 
 .pokedex-container {
     width: 80%;
-    margin: 6.8rem auto;
+    margin: 6.8rem auto 0rem auto;
     padding: 2rem 0;
 
     .pokedex-box {
@@ -37,8 +37,6 @@ body {
         border: 1px solid #dadada;
         border-radius: .4rem;
         background-color: #fafafa;
-
-
         display: flex;
         flex-direction: column;
         justify-content: center;

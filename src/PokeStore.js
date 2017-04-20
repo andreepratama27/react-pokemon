@@ -1,10 +1,19 @@
-import { observable } from 'mobx'
+import { autorun, observable } from 'mobx'
 
 class PokeStore {
-  @observable todos = ['buy milk', 'buy egg']
-  @observable filter = ''
+
+  @observable pokemon = [
+    'Pikachu',
+    'Bulbasaur',
+    'Squirtle',
+    'Rattata'
+  ]
 }
 
-var store = new PokeStore
+const store = new PokeStore
 
 export default store
+
+autorun(() => {
+  console.log(store.pokemon[0])
+})
