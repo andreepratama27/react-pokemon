@@ -1,10 +1,9 @@
-const Pokedex = () =>
+const Pokedex = (props) =>
     <div className="pokedex-box">
         <div className="box-image">
-            Ini nanti gambarnya
         </div>
         <div className="box-text">
-            Bulbasaur
+            { props.name }
         </div>
     </div>
 

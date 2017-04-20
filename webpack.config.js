@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
 
-  entry: path.join(__dirname, 'src', 'Main.js'),
+  entry: path.join(__dirname, 'src', 'App.js'),
 
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.scss', '.sass'],
@@ -31,8 +31,9 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react', 'es2015']
-        }
+          presets: ['react', 'es2015'],
+          plugins: ['transform-decorators-legacy', 'transform-class-properties']
+            }
       },
 
       {
