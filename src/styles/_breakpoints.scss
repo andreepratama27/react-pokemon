@@ -1,0 +1,78 @@
+$small-width: 200px;
+$phone-width: 576px;
+$tablet-width: 768px;
+$desktop-width: 992px;
+$large-width: 1200px;
+
+@mixin small {
+  @media (min-width: #{$small-width}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (min-width: #{$phone-width}) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}
+
+@mixin onlySmall {
+  @media (min-width: #{$small-width}) and (max-width: #{$tablet-width} - 1) {
+    @content;
+  }
+}
+
+@mixin onlyTablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width} - 1) {
+    @content;
+  }
+}
+
+@mixin smallToTablet {
+  @media (min-width: #{$small-width}) and (max-width: #{$desktop-width} - 1) {
+    @content;
+  }
+}
+
+@mixin onlyMedium {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$large-width} - 1) {
+    @content;
+  }
+}

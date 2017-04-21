@@ -1,19 +1,29 @@
-import { autorun, computed, observable } from 'mobx'
 import axios from 'axios'
+import {
+  compouted,
+  observable
+} from 'mobx'
 
 class PokeStore {
 
-  @observable pokemon = [
-    'Pikachu',
-    'Bulbasaur',
-    'Squirtle',
-    'Rattata'
-  ]
+  @observable data = []
+
+  constructor () {
+    this.fetchPokemonData()
+  }
+
+  fetchPokemonData () {
+    console.log('fetching data')
+    axios.get('http://pokeapi.salestock.net:8000/api/v2/pokemon')
+    .then(res => {
+      this.data = res.data.results
+      console.log('fetcing success')
+    })
+
+    .catch(err => {
+      throw err
+    })
+  }
 }
 
-const store = new PokeStore
-
-export default store
-
-autorun(() => {
-})
+export default new PokeStore()
