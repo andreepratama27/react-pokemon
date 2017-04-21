@@ -31,6 +31,7 @@ body {
     margin: 6.8rem auto 0rem auto;
     padding: 2rem 0;
     display: flex;
+    flex-wrap: wrap;
 
     .pokedex-box {
         margin-bottom: 1.6rem;
@@ -66,13 +67,22 @@ body {
 @include tablet {
     .pokedex-container {
         width: 80%;
+        justify-content: space-between;
 
         .pokedex-box {
-            width: calc(100% / 2);
+            width: calc(98% / 2);
             height: 18rem;
         }
     }
 }
 
 @include desktop {
+    .pokedex-container {
+        width: 60%;
+
+        .pokedex-box {
+            width: calc(98% / 4);
+            height: 18rem;
+        }
+    }
 }

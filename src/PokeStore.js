@@ -17,6 +17,7 @@ class PokeStore {
     axios.get('http://pokeapi.salestock.net:8000/api/v2/pokemon')
     .then(res => {
       this.data = res.data.results
+      console.log('fetcing success')
     })
 
     .catch(err => {
