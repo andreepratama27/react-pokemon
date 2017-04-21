@@ -9,7 +9,7 @@ class Main extends React.Component {
             {
               this.props.store.data.map((v, i) => {
                 return (
-                  <Pokedex name={v.name} key={i} />
+                  <Pokedex data={v} id={i + 1} key={i} />
                 )
               })
             }
