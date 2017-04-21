@@ -6,13 +6,6 @@ import {
 
 class PokeStore {
 
-  @observable pokemon = [
-    'Pikachu',
-    'Bulbasaur',
-    'Squirtle',
-    'Rattata'
-  ]
-
   @observable data = []
 
   constructor () {
@@ -20,9 +13,10 @@ class PokeStore {
   }
 
   fetchPokemonData () {
-    axios.get('http://582d6829050f7a1200b8327b.mockapi.io/api/v1/task')
+    console.log('fetching data')
+    axios.get('http://pokeapi.salestock.net:8000/api/v2/pokemon')
     .then(res => {
-      this.data = res.data
+      this.data = res.data.results
     })
 
     .catch(err => {
