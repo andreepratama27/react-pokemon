@@ -17,9 +17,15 @@ class Main extends React.Component {
   }
 
   componentWillMount () {
+    this.setState({
+	  load: false
+	})
   }
 
   componentDidMount () {
+    this.setState({
+	  load: true
+	})
   }
 
   handleClick () {
