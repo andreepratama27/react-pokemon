@@ -1,11 +1,11 @@
 @import "./breakpoints";
+@import url('https://fonts.googleapis.com/css?family=Dosis');
 
 body {
     background-color: #fff;
 }
 
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -42,10 +42,19 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+				position: relative;
 
         .box-image {
-            margin-bottom: 2rem;
+						img {
+								margin-top: -1rem;
+						}
         }
+				.box-text {
+						font-family: 'Dosis';
+						font-size: 1.8rem;
+						position: absolute;
+						bottom: 2rem;
+				}
     }
 }
 
@@ -58,7 +67,10 @@ body {
             height: 18rem;
 
             .box-image {
-                margin-bottom: 2rem;
+								img {
+										width: 12rem;
+										height: 12rem;
+								}
             }
         }
     }
