@@ -11,6 +11,43 @@ html, body {
     height: 100%;
 }
 
+@-webkit-keyframes placeHolderShimmer {
+		0% {
+				background-position: -468px 0
+		}
+		100% {
+				background-position: 468px 0
+		}
+}
+
+@keyframes placeHolderShimmer {
+		0% {
+				background-position: -468px 0
+		}
+		100% {
+				background-position: 468px 0
+		}
+}
+
+.animation-toolset {
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: forwards;
+		animation-fill-mode: forwards;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-animation-name: placeHolderShimmer;
+		animation-name: placeHolderShimmer;
+		-webkit-animation-timing-function: linear;
+		animation-timing-function: linear;
+		background: lighten(#e7e7e7, 6%);
+		background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+		background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+		background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+		-webkit-background-size: 800px 104px;
+		background-size: 800px 104px;
+}
+
 .navbar-pokemon {
     background-color: cornflowerblue;
     border: 0;
@@ -31,7 +68,58 @@ html, body {
     margin: 6.8rem auto 0rem auto;
     padding: 2rem 0;
     display: flex;
+		flex-direction: column;
     flex-wrap: wrap;
+
+		.poke-placeholder {
+				border: 1px solid #dadada;
+				border-radius: .4rem;
+				background-color: #fafafa;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 18rem;
+				position: relative;
+
+				.image-placeholder {
+						.image {
+								margin-top: -1rem;
+								width: 6rem;
+								height: 6rem;
+								border-radius: .4rem;
+								background: lighten(#e7e7e7, 6%);
+								-webkit-animation-duration: 1s;
+								animation-duration: 1s;
+								-webkit-animation-fill-mode: forwards;
+								animation-fill-mode: forwards;
+								-webkit-animation-iteration-count: infinite;
+								animation-iteration-count: infinite;
+								-webkit-animation-name: placeHolderShimmer;
+								animation-name: placeHolderShimmer;
+								-webkit-animation-timing-function: linear;
+								animation-timing-function: linear;
+								background: lighten(#e7e7e7, 6%);
+								background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+								background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+								background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+								-webkit-background-size: 800px 104px;
+								background-size: 800px 104px;
+
+						}
+				}
+
+				.text-placeholder {
+						width: 80%;
+						margin: 0 auto;
+						height: 2rem;
+						position: absolute;
+						bottom: 2rem;
+						border-radius: .4rem;
+
+						@extend .animation-toolset;
+				}
+		}
 
     .pokedex-box {
         margin-bottom: 1.6rem;
@@ -50,7 +138,7 @@ html, body {
 						}
         }
 				.box-text {
-						font-family: 'Dosis';
+						font-family: 'Dosis', sans-serif;
 						font-size: 1.8rem;
 						position: absolute;
 						bottom: 2rem;
