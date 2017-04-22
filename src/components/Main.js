@@ -33,7 +33,7 @@ class Main extends React.Component {
 
             <button onClick={this.handleClick.bind(this)}>Show Modal</button>
 
-            <div onClick={this.handleClick}>
+            <div>
                 {
                   this.state.isShowingModal &&
                   <ModalContainer onClose={this.handleClose}>
