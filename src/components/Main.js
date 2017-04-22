@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react'
 import Pokedex from 'components/Pokedex'
+import PokePlaceholder from 'components/PokePlaceholder'
 import {
   ModalContainer,
   ModalDialog
@@ -10,8 +11,15 @@ class Main extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isShowingModal: false
+      isShowingModal: false,
+      load: false
     }
+  }
+
+  componentWillMount () {
+  }
+
+  componentDidMount () {
   }
 
   handleClick () {
@@ -30,17 +38,10 @@ class Main extends React.Component {
     return (
         <div className='pokedex-container'>
             {
-              this.props.store.data.map((v, i) => {
-                return (
-                  <Pokedex
-                    data={v}
-                    id={i + 1}
-                    key={i} />
-                )
-              })
+              this.state.load
+              ? this.props.store.data.map((v, i) => <Pokedex data={v} id={i + 1} key={i} />)
+              : <PokePlaceholder />
             }
-
-            <button onClick={this.handleClick.bind(this)}>Show Modal</button>
 
             <div>
                 {

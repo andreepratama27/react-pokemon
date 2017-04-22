@@ -1,10 +1,22 @@
+import {
+  ModalContainer,
+  ModalDialog
+} from 'react-modal-dialog'
+
 class Pokedex extends React.Component {
 
   constructor (props) {
     super(props)
     this.state = {
-      image: ''
+      image: '',
+      isShowingModal: false
     }
+  }
+
+  handleClick () {
+    this.setState({
+      isShowingModal: true
+    })
   }
 
   renderImage (id) {
