@@ -19,18 +19,39 @@ class Pokedex extends React.Component {
     })
   }
 
+  handleClose () {
+    this.setState({
+      isShowingModal: false
+    })
+  }
+
   renderImage (id) {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   }
 
   render () {
     return (
-        <div className="pokedex-box">
-            <div className="box-image">
-                <img src={ this.renderImage(this.props.id) } alt="" />
+        <div className='pokedex' onClick={ this.handleClick.bind(this) }>
+            <div className="pokedex-box">
+                <div className="box-image">
+                    <img src={ this.renderImage(this.props.id) } alt="" />
+                </div>
+                <div className="box-text">
+                    { this.props.data.name }
+                </div>
             </div>
-            <div className="box-text">
-                { this.props.data.name }
+
+            <div>
+                {
+                  this.state.isShowingModal &&
+                  <ModalContainer onClose={ this.handleClose.bind(this) }>
+                      <ModalDialog onClose={ this.handleClose.bind(this) }>
+                          <h1>
+                              Info Pokemon
+                          </h1>
+                      </ModalDialog>
+                  </ModalContainer>
+                }
             </div>
         </div>
     )

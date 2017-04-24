@@ -169,8 +169,10 @@ html, body {
         width: 80%;
         justify-content: space-between;
 
+        .pokedex {
+        }
+
         .pokedex-box {
-            width: calc(98% / 4);
             height: 18rem;
         }
     }
