@@ -11,32 +11,32 @@ class Main extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isShowingModal: false,
+      isshowingmodal: false,
       load: false
     }
   }
 
-  componentWillMount () {
-    this.setState({
+  componentwillmount () {
+    this.setstate({
 	  load: false
 	})
   }
 
-  componentDidMount () {
-    this.setState({
+  componentdidmount () {
+    this.setstate({
 	  load: true
 	})
   }
 
-  handleClick () {
-    this.setState({
-      isShowingModal: true
+  handleclick () {
+    this.setstate({
+      isshowingmodal: true
     })
   }
 
-  handleClose () {
-    this.setState({
-      isShowingModal: false
+  handleclose () {
+    this.setstate({
+      isshowingmodal: false
     })
   }
 
@@ -45,22 +45,22 @@ class Main extends React.Component {
     const { data } = this.props.store
 
     return (
-        <div className='pokedex-container'>
+        <div classname='pokedex-container'>
             {
               this.state.load
-              ? data.map((v, i) => <Pokedex data={v} id={i + 1} key={i} />)
-              : <PokePlaceholder />
+              ? data.map((v, i) => <pokedex data={v} id={i + 1} key={i} />)
+              : <pokeplaceholder />
             }
 
             <div>
                 {
-                  this.state.isShowingModal &&
-                  <ModalContainer onClose={ this.handleClose.bind(this) }>
-                      <ModalDialog onClose={ this.handleClose.bind(this) }>
-                          <h1>Dialog Content</h1>
-                          <p>More content.</p>
-                      </ModalDialog>
-                  </ModalContainer>
+                  this.state.isshowingmodal &&
+                  <modalcontainer onclose={ this.handleclose.bind(this) }>
+                      <modaldialog onclose={ this.handleclose.bind(this) }>
+                          <h1>dialog content</h1>
+                          <p>more content.</p>
+                      </modaldialog>
+                  </modalcontainer>
                 }
             </div>
         </div>
