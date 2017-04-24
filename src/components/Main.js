@@ -41,11 +41,14 @@ class Main extends React.Component {
   }
 
   render () {
+
+    const { data } = this.props.store
+
     return (
         <div className='pokedex-container'>
             {
               this.state.load
-              ? this.props.store.data.map((v, i) => <Pokedex data={v} id={i + 1} key={i} />)
+              ? data.map((v, i) => <Pokedex data={v} id={i + 1} key={i} />)
               : <PokePlaceholder />
             }
 
