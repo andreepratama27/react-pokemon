@@ -46,9 +46,7 @@ class Pokedex extends React.Component {
                   this.state.isShowingModal &&
                   <ModalContainer onClose={ this.handleClose.bind(this) }>
                       <ModalDialog onClose={ this.handleClose.bind(this) }>
-                          <h1>
-                              Info Pokemon
-                          </h1>
+                          <img src={ this.renderImage(this.props.id) } alt="" />
                       </ModalDialog>
                   </ModalContainer>
                 }

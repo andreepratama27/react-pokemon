@@ -16,26 +16,26 @@ class Main extends React.Component {
     }
   }
 
-  componentwillmount () {
-    this.setstate({
+  componentWillMount () {
+    this.setState({
 	  load: false
 	})
   }
 
-  componentdidmount () {
-    this.setstate({
+  componentDidMount () {
+    this.setState({
 	  load: true
 	})
   }
 
   handleclick () {
-    this.setstate({
+    this.setState({
       isshowingmodal: true
     })
   }
 
   handleclose () {
-    this.setstate({
+    this.setState({
       isshowingmodal: false
     })
   }
@@ -45,24 +45,12 @@ class Main extends React.Component {
     const { data } = this.props.store
 
     return (
-        <div classname='pokedex-container'>
+        <div className='pokedex-container'>
             {
               this.state.load
-              ? data.map((v, i) => <pokedex data={v} id={i + 1} key={i} />)
-              : <pokeplaceholder />
+              ? data.map((v, i) => <Pokedex data={v} id={i + 1} key={i} />)
+              : <PokePlaceholder />
             }
-
-            <div>
-                {
-                  this.state.isshowingmodal &&
-                  <modalcontainer onclose={ this.handleclose.bind(this) }>
-                      <modaldialog onclose={ this.handleclose.bind(this) }>
-                          <h1>dialog content</h1>
-                          <p>more content.</p>
-                      </modaldialog>
-                  </modalcontainer>
-                }
-            </div>
         </div>
     )
   }
