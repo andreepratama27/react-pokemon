@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react'
+import PropTypes from 'prop-types'
 import Pokedex from 'components/Pokedex'
 import PokePlaceholder from 'components/PokePlaceholder'
 import {
@@ -54,6 +55,9 @@ class Main extends React.Component {
         </div>
     )
   }
+}
+
+Main.propTypes = {
 }
 
 export default Main

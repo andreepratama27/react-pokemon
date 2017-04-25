@@ -30,14 +30,14 @@ class Pokedex extends React.Component {
   }
 
   render () {
+
+    const { data } = this.props
+
     return (
         <div className='pokedex' onClick={ this.handleClick.bind(this) }>
             <div className="pokedex-box">
                 <div className="box-image">
                     <img src={ this.renderImage(this.props.id) } alt="" />
-                </div>
-                <div className="box-text">
-                    { this.props.data.name }
                 </div>
             </div>
 
@@ -46,7 +46,15 @@ class Pokedex extends React.Component {
                   this.state.isShowingModal &&
                   <ModalContainer onClose={ this.handleClose.bind(this) }>
                       <ModalDialog onClose={ this.handleClose.bind(this) }>
+
                           <img src={ this.renderImage(this.props.id) } alt="" />
+
+                          <div className='poke-name'>
+                              { data.name }
+                          </div>
+
+                          <div className='poke-information'>
+                          </div>
                       </ModalDialog>
                   </ModalContainer>
                 }
