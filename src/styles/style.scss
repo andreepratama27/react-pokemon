@@ -146,6 +146,21 @@ html, body {
     }
 }
 
+.poke-name {
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.poke-image {
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 20rem;
+    }
+}
+
 @include onlySmall {
     .pokedex-container {
         width: 80%;
