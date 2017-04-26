@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {
-  compouted,
+  computed,
   observable
 } from 'mobx'
 
@@ -9,7 +9,7 @@ class PokeStore {
   @observable data = []
 
   constructor () {
-    this.fetchPokemonData()
+    this.fetchPokemonDataAsync()
   }
 
   fetchPokemonData () {
@@ -23,6 +23,13 @@ class PokeStore {
     .catch(err => {
       throw err
     })
+  }
+
+  async fetchPokemonDataAsync () {
+    const response = await fetch('http://pokeapi.salestock.net:8000/api/v2/pokemon')
+    const res = await response.json()
+
+    this.data = res.results
   }
 }
 
