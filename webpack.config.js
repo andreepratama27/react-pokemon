@@ -5,7 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
 
-  entry: path.join(__dirname, 'src', 'App.js'),
+  // entry: path.join(__dirname, 'src', 'App.js'),
+  entry: ['babel-polyfill', path.join(__dirname, 'src', 'App.js')],
 
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.scss', '.sass'],
@@ -31,7 +32,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react', 'es2015'],
+          presets: ['react', 'es2015', 'es2017'],
           plugins: ['transform-decorators-legacy', 'transform-class-properties']
             }
       },
