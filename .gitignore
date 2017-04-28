@@ -1,2 +1,5 @@
 node_modules/
 bower_components/
+dist/bundle.js
+dist/style.css
+dist/index.html
