@@ -68,7 +68,6 @@ html, body {
     margin: 6.8rem auto 0rem auto;
     padding: 2rem 0;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
 
     .poke-placeholder {
@@ -158,12 +157,14 @@ html, body {
 
     img {
         width: 20rem;
+        height: 100%;
     }
 }
 
 @include onlySmall {
     .pokedex-container {
         width: 80%;
+        flex-direction: column;
 
         .pokedex-box {
             width: 100%;
@@ -185,6 +186,7 @@ html, body {
         justify-content: space-between;
 
         .pokedex {
+            width: calc(96% / 4);
         }
 
         .pokedex-box {
@@ -197,9 +199,9 @@ html, body {
     .pokedex-container {
         width: 60%;
 
-        .pokedex-box {
+        .pokedex {
             width: calc(96% / 4);
-            height: 16rem;
+            margin-bottom: 1.4rem;
         }
     }
 }
