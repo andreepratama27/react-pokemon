@@ -8,3 +8,4 @@ render(
   <Main store={store}/>,
   document.getElementById('container-app')
 )
+

@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react'
-import PropTypes from 'prop-types'
 import Pokedex from 'components/Pokedex'
 import PokePlaceholder from 'components/PokePlaceholder'
 import {
@@ -55,6 +54,7 @@ class Main extends React.Component {
         <div className='pokedex-container'>
 
           <InfiniteScroll
+            className='pokedex-scroller'
             pageStart={0}
             loadMore={this.loadPokemon}
             hasMore={true}>
@@ -65,18 +65,14 @@ class Main extends React.Component {
             }
           </InfiniteScroll>
 
-          <div className="pokedex-spinner">
+          <div className='pokedex-spinner'>
 
-            <Spinner spinnerName="three-bounce" />
-
+            <Spinner spinnerName='three-bounce' /> 
           </div>
 
         </div>
     )
   }
-}
-
-Main.propTypes = {
 }
 
 export default Main

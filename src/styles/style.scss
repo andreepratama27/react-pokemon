@@ -67,8 +67,14 @@ html, body {
 .pokedex-container {
     margin: 6.8rem auto 0rem auto;
     padding: 2rem 0;
-    display: flex;
-    flex-wrap: wrap;
+    
+
+    .pokedex-scroller {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
     .pokedex-spinner {
         text-align: center;
@@ -169,6 +175,10 @@ html, body {
     .pokedex-container {
         width: 80%;
         flex-direction: column;
+
+        .pokedex {
+            width: 100%;
+        }
 
         .pokedex-box {
             width: 100%;
