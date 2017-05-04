@@ -10,19 +10,19 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.scss', '.sass'],
-	alias: {
-		components: path.resolve(__dirname, 'src', 'components')
-	}
+    alias: {
+      components: path.resolve(__dirname, 'src', 'components')
+    }
   },
 
   output: {
-     path: path.join(__dirname, 'dist'),
-     filename: 'bundle.js'
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
 
   devServer: {
     inline: true,
-    port: 1010
+    port: 1010,
   },
 
   module: {
