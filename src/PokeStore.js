@@ -17,7 +17,7 @@ class PokeStore {
     axios.get('http://pokeapi.salestock.net:8000/api/v2/pokemon')
     .then(res => {
       this.data = res.data.results
-      console.log('fetcing success')
+      console.log('done fetching')
     })
 
     .catch(err => {
@@ -26,10 +26,13 @@ class PokeStore {
   }
 
   async fetchPokemonDataAsync () {
-    const response = await fetch('http://pokeapi.salestock.net:8000/api/v2/pokemon')
-    const res = await response.json()
-
-    this.data = res.results
+    try {
+      const response = await fetch('http://pokeapi.salestock.net:8000/api/v2/pokemon')
+      const res = await response.json()
+      this.data = res.results
+    } catch (err) {
+      throw err
+    }
   }
 }
 

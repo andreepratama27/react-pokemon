@@ -1,11 +1,13 @@
 import { observer } from 'mobx-react'
-import PropTypes from 'prop-types'
 import Pokedex from 'components/Pokedex'
 import PokePlaceholder from 'components/PokePlaceholder'
 import {
   ModalContainer,
   ModalDialog
 } from 'react-modal-dialog'
+import InfiniteScroll from 'react-infinite-scroller'
+import Spinner from 'react-spinkit'
+import axios from 'axios'
 
 @observer
 class Main extends React.Component {
@@ -19,14 +21,14 @@ class Main extends React.Component {
 
   componentWillMount () {
     this.setState({
-	  load: false
-	})
+      load: false
+    })
   }
 
   componentDidMount () {
     this.setState({
-	  load: true
-	})
+	   load: true
+    })
   }
 
   handleclick () {
@@ -41,23 +43,40 @@ class Main extends React.Component {
     })
   }
 
+  loadPokemon () {
+    axios.get('http://pokeapi.salestock.net:8000/api/v2/pokemon/?offset=20')
+    .then(res => {
+      console.log(res.data.results)
+    })
+  }
+
   render () {
 
     const { data } = this.props.store
 
     return (
         <div className='pokedex-container'>
+
+          <InfiniteScroll
+            className='pokedex-scroller'
+            pageStart={0}
+            loadMore={this.loadPokemon}
+            hasMore={true}>
             {
               this.state.load
               ? data.map((v, i) => <Pokedex data={v} id={i + 1} key={i} />)
               : <PokePlaceholder />
             }
+          </InfiniteScroll>
+
+          <div className='pokedex-spinner'>
+
+            <Spinner spinnerName='three-bounce' /> 
+          </div>
+
         </div>
     )
   }
-}
-
-Main.propTypes = {
 }
 
 export default Main
