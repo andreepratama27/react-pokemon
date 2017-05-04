@@ -70,6 +70,10 @@ html, body {
     display: flex;
     flex-wrap: wrap;
 
+    .pokedex-spinner {
+        text-align: center;
+    }
+
     .poke-placeholder {
         border: 1px solid #dadada;
         border-radius: .4rem;

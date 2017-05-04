@@ -6,6 +6,8 @@ import {
   ModalContainer,
   ModalDialog
 } from 'react-modal-dialog'
+import InfiniteScroll from 'react-infinite-scroller'
+import Spinner from 'react-spinkit'
 
 @observer
 class Main extends React.Component {
@@ -19,14 +21,14 @@ class Main extends React.Component {
 
   componentWillMount () {
     this.setState({
-	  load: false
-	})
+      load: false
+    })
   }
 
   componentDidMount () {
     this.setState({
-	  load: true
-	})
+	   load: true
+    })
   }
 
   handleclick () {
@@ -41,17 +43,34 @@ class Main extends React.Component {
     })
   }
 
+  loadPokemon () {
+    console.log('load more')
+  }
+
   render () {
 
     const { data } = this.props.store
 
     return (
         <div className='pokedex-container'>
+
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={this.loadPokemon}
+            hasMore={true}>
             {
               this.state.load
               ? data.map((v, i) => <Pokedex data={v} id={i + 1} key={i} />)
               : <PokePlaceholder />
             }
+          </InfiniteScroll>
+
+          <div className="pokedex-spinner">
+
+            <Spinner spinnerName="three-bounce" />
+
+          </div>
+
         </div>
     )
   }
