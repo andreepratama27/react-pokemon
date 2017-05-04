@@ -7,6 +7,7 @@ import {
 } from 'react-modal-dialog'
 import InfiniteScroll from 'react-infinite-scroller'
 import Spinner from 'react-spinkit'
+import axios from 'axios'
 
 @observer
 class Main extends React.Component {
@@ -43,7 +44,10 @@ class Main extends React.Component {
   }
 
   loadPokemon () {
-    console.log('load more')
+    axios.get('http://pokeapi.salestock.net:8000/api/v2/pokemon/?offset=20')
+    .then(res => {
+      console.log(res.data.results)
+    })
   }
 
   render () {
